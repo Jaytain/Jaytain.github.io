@@ -359,6 +359,216 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/18/buuoj%E5%88%B7%E9%A2%98pwn%E9%83%A8%E5%88%86/" >
+            
+                <span>buuoj刷题pwn部分</span>
+        </a>
+        <div class="abstract-content">
+            warmup_csaw_2016exp1：
+123456789101112131415161718192021222324from pwn import *import sysfrom LibcSearcher import *context.log_level=&apos;debug&apos;context.arch=&apos;amd64&apos;# file_name=ELF(&quot;./&quot;)# libc=ELF(&quot;./&quot;)# ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)if args[&ap...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "pwn">pwn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "ctf">ctf</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/18/html%E4%BB%A3%E7%A0%81-%E5%86%85%E5%AE%B9%E7%95%A5%E5%A4%9A-%E5%8F%AF%E8%83%BD%E5%8A%A0%E8%BD%BD%E8%BF%87%E6%85%A2/" >
+            
+                <span>html代码(内容略多_可能加载过慢)</span>
+        </a>
+        <div class="abstract-content">
+            （此文章是本人对html的学习笔记，仅供资料查询和参考，不可商用）参考书籍《html&amp;css设计与构建网站》
+一、简单的结构（详细看书）123&lt;head&gt;&lt;title&gt;&lt;body&gt;
+二、文本2.1标题heading```1```&lt;h2&gt;level2 heading&lt;/h2&gt;
+
+2.2段落1```eg:&lt;p&gt;a paragraph
+
+2.3粗体和斜体 1234567891011```&lt;i&gt;斜体文字&lt;/i&gt;``` 斜体### 2.4上标和下标```&lt;sup&gt;&lt;/sup&g...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/18/pie%E4%BD%8E%E4%BD%8D%E8%A6%86%E7%9B%96/" >
+            
+                <span>pie低位覆盖</span>
+        </a>
+        <div class="abstract-content">
+            
+这里跟大家聊一聊二进制文件保护中的pie（即地址随机化），也就是程序每次运行，一些数据所在地址就会变更，但是这仅仅是libc的基地址发生变化，由于只是一个内存页的单位发生变化，那么地址的低三位就不会发生变化，即4KB(0x1000)不变。
+绕过技巧：通过溢出覆盖已有地址的低三位就可以跳转到我们想要的地址上。
+
+直接上例题
+
+//gcc pwn2.c -m32 -Wl,-z,relro,-z,now -pie -o pwn2_2
+#include &lt;unistd.h&gt;
+void fun(){    char buffer[0x20];    read(0,buffer,0x1...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/18/%E6%A0%88%E8%BF%81%E7%A7%BB-201907AHpwn/" >
+            
+                <span>栈迁移_201907AHpwn</span>
+        </a>
+        <div class="abstract-content">
+            看一下c的代码：
+1234567891011//gcc pwn3.c -m32 -fno-stack-protector -o pwn3#include &lt;unistd.h&gt;void fun()&#123;    char buffer[0x20];    read(0,buffer,0x30);    write(1,buffer,0x30);&#125;int main()&#123;   fun();  return 0;&#125;
+
+
+这次主要是溢出的空间大幅度变小，这里运用到栈迁移的知识。
+#AH2019-07-pwn例子：
+自己还是菜，多多接触例子为妙，在大佬的...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "pwn">pwn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "stack">stack</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/18/offbyone-2019Asisctf-books/" >
+            
+                <span>offbyone-2019Asisctf_books</span>
+        </a>
+        <div class="abstract-content">
+            
+根据先知社区的一位大佬复现，地址：https://xz.aliyun.com/t/6087
+这位大佬还有unlink的操作，我之后了解unlink的时候，会用这道题再来研究一下。
+最近对heap稍有一点感觉，准备复现一下题目，一下上手offbyone，感觉现在自己还是太菜了，还有很多疑问，准备留下这篇博客记录一下。
+到最后还是找到了大佬，最后自己也差不多了解了漏洞知识，他的博客地址就在我书签那，ID:ERROR404
+
+offbyone的漏洞位置：
+
+
+书本结构体：
+123456struct book&#123;    int id;    char *name;    char *d...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "pwn">pwn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "heap">heap</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/18/text-1/" >
+            
+                <span>pwn环境搭建</span>
+        </a>
+        <div class="abstract-content">
+            1.前提：python环境，同时需要装python-dev均使用apt安装的方式
+123sudo apt updatesudo apt install git //安装gitsudo apt install python-dev
+2.pip安装（如果这个不行，请百度或者谷歌寻找新的安装方法）
+12wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py
+如果pip安装东西慢，可以换源（这里为豆瓣源）
+1pip install numpy -i [https://pypi.doubanio.com/simple/]&lt;/blo...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "pwn">pwn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "ctf">ctf</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/18/hello-world/" >
             
                 <span>Hello World</span>
@@ -617,9 +827,81 @@ Mo...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 1
+        Total : 7
         </div>
         <!-- search  -->
         
@@ -635,6 +917,36 @@ Mo...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/%E6%A0%88%E8%BF%81%E7%A7%BB-201907AHpwn/" >栈迁移_201907AHpwn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/text-1/" >pwn环境搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/pie%E4%BD%8E%E4%BD%8D%E8%A6%86%E7%9B%96/" >pie低位覆盖</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/offbyone-2019Asisctf-books/" >offbyone-2019Asisctf_books</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/html%E4%BB%A3%E7%A0%81-%E5%86%85%E5%AE%B9%E7%95%A5%E5%A4%9A-%E5%8F%AF%E8%83%BD%E5%8A%A0%E8%BD%BD%E8%BF%87%E6%85%A2/" >html代码(内容略多_可能加载过慢)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/buuoj%E5%88%B7%E9%A2%98pwn%E9%83%A8%E5%88%86/" >buuoj刷题pwn部分</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/hello-world/" >Hello World</a>
         </li>
     
@@ -642,6 +954,14 @@ Mo...
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="heap"><span class="iconfont-archer">&#xe606;</span>heap</span>
+    
+        <span class="sidebar-tag-name" data-tags="stack"><span class="iconfont-archer">&#xe606;</span>stack</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -675,6 +995,8 @@ jsonContent:
 </div>
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
