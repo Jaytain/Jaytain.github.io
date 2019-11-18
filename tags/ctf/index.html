@@ -378,6 +378,47 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/18/pie%E4%BD%8E%E4%BD%8D%E8%A6%86%E7%9B%96/" >
+            
+                <span>pie低位覆盖</span>
+        </a>
+        <div class="abstract-content">
+            
+这里跟大家聊一聊二进制文件保护中的pie（即地址随机化），也就是程序每次运行，一些数据所在地址就会变更，但是这仅仅是libc的基地址发生变化，由于只是一个内存页的单位发生变化，那么地址的低三位就不会发生变化，即4KB(0x1000)不变。
+绕过技巧：通过溢出覆盖已有地址的低三位就可以跳转到我们想要的地址上。
+
+直接上例题
+
+//gcc pwn2.c -m32 -Wl,-z,relro,-z,now -pie -o pwn2_2
+#include &lt;unistd.h&gt;
+void fun(){    char buffer[0x20];    read(0,buffer,0x1...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "pwn">pwn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "stack">stack</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/18/%E6%A0%88%E8%BF%81%E7%A7%BB-201907AHpwn/" >
             
                 <span>栈迁移_201907AHpwn</span>
@@ -729,6 +770,8 @@ offbyone的漏洞位置：
         <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="html"><span class="iconfont-archer">&#xe606;</span>html</span>
     
         <span class="sidebar-tag-name" data-tags="heap"><span class="iconfont-archer">&#xe606;</span>heap</span>
     
