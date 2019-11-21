@@ -347,6 +347,59 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/21/%E6%B2%99%E7%9B%92%E6%A0%88pwn-2019syc-10th-geek-notbad/" >
+            
+                <span>沙盒栈pwn_2019syc_10th_geek_notbad</span>
+        </a>
+        <div class="abstract-content">
+            初遇开启沙盒栈题pwn_2019syc_10th_geek题目下载地址
+开启沙盒的函数：
+
+
+开启沙盒之后，system、execve函数就被ban了，只能用read、write函数。
+
+程序主要功能函数：
+
+只能溢出0x10个字符，也就是只能填俩64位地址，根本构造不出rop链。
+
+寻找出题人留下的gift：
+
+push rax会发生抬栈的操作
+
+这边最重要的是jmp rsp的操作，syscall是根据rax寄存器的数值执行对应操作，到时候可以看看rax是多少。
+调试结果是，rax在程序出栈的时候，为0x1f：
+
+
+所以做题思路：
+由于程序所有保护均未开：
+我们可以在返回地址的后方跟想...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "pwn">pwn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "ctf">ctf</a>
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "stack">stack</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/18/pie%E4%BD%8E%E4%BD%8D%E8%A6%86%E7%9B%96/" >
             
                 <span>pie低位覆盖</span>
@@ -677,7 +730,7 @@ void fun(){    char buffer[0x20];    read(0,buffer,0x1...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/21</span><a class="archive-post-title" href= "/2019/11/21/%E6%B2%99%E7%9B%92pwn-2019syc-10th-geek-notbad/" >沙盒pwn_2019syc_10th_geek_notbad</a>
+            <span class="archive-post-date">11/21</span><a class="archive-post-title" href= "/2019/11/21/%E6%B2%99%E7%9B%92%E6%A0%88pwn-2019syc-10th-geek-notbad/" >沙盒栈pwn_2019syc_10th_geek_notbad</a>
         </li>
     
     
